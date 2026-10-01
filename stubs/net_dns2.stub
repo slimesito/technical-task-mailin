@@ -1,0 +1,31 @@
+<?php
+
+namespace NetDNS2 {
+
+    /**
+     * Net_DNS2 exposes record fields as protected properties read through __get().
+     * Declaring them here lets PHPStan understand those reads.
+     *
+     * @property string $address
+     * @property int $preference
+     * @property \NetDNS2\Data\Domain $exchange
+     * @property \NetDNS2\Data\Domain $nsdname
+     * @property \NetDNS2\Data\Domain $cname
+     * @property \NetDNS2\Data\Domain $ptrdname
+     * @property list<\NetDNS2\Data\Text> $text
+     */
+    class RR {}
+}
+
+namespace NetDNS2\Data {
+
+    class Domain implements \Stringable
+    {
+        public function __toString(): string {}
+    }
+
+    class Text
+    {
+        public function value(): string {}
+    }
+}
